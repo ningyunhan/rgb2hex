@@ -12,9 +12,16 @@
 .result-demo {
     width: 200px;
     height: 200px;
-    background: #f00;
 }
 
 .result {
     font-size: 2em;
+}
+
+input.error {
+    border-color: #f00;
+}
+
+label.error {
+    color: #f00;
 }
