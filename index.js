@@ -34,6 +34,7 @@ var RgbToHex = null;
                     self.resultDemo.css({
                         background: result
                     });
+                    self.clearForm();
                 }
             })
         },
