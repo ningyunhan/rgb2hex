@@ -1,0 +1,20 @@
+.align-group-flex-center {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.result-demo {
+    width: 200px;
+    height: 200px;
+    background: #f00;
+}
+
+.result {
+    font-size: 2em;
+}
