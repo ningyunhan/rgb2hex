@@ -8,6 +8,13 @@ var RgbToHex = null;
         resultDemo: $("#result-container .result-demo"),
         formValidator: null,
 
+        clearForm: function() {
+            $.map(this.form.find("input"), function(input) {
+                $(input).val("");
+            });
+            this.formValidator.resetForm();
+        },
+
         onClickConvertBtn: function() {
             var self = this;
             this.convertBtn.off("click");
@@ -20,8 +27,6 @@ var RgbToHex = null;
                         if(res.length === 1) {
                             res = "0" + res;
                         }
-
-
                         result += res;
                     });
 
@@ -29,8 +34,6 @@ var RgbToHex = null;
                     self.resultDemo.css({
                         background: result
                     });
-
-                    self.formValidator.resetForm();
                 }
             })
         },
