@@ -15,6 +15,14 @@ var RgbToHex = null;
             this.formValidator.resetForm();
         },
 
+        copyToClipboard: function(value) {
+            var temp = $("<input>");
+            $("body").append(temp);
+            temp.val(value).select();
+            document.execCommand("copy");
+            temp.remove();
+        },
+
         onClickConvertBtn: function() {
             var self = this;
             this.convertBtn.off("click");
@@ -27,10 +35,11 @@ var RgbToHex = null;
                         if(res.length === 1) {
                             res = "0" + res;
                         }
-                        result += res;
+                        result += res.toUpperCase();
                     });
 
                     self.result.empty().text(result);
+                    self.copyToClipboard(result);
                     self.resultDemo.css({
                         background: result
                     });
