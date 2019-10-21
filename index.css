@@ -1,3 +1,78 @@
+
+body {
+    font-family: sans-serif;
+}
+
+
+/* add animation to input start */
+
+#rgb-2-hex-form {
+    position: relative;
+    overflow: hidden;
+}
+
+#rgb-2-hex-form .input-container{
+    height: 50px;
+    position: relative;
+    margin-top: 2em;
+}
+
+#rgb-2-hex-form input {
+    width: 100%;
+    height: 100%;
+    color: #595F6E;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+#rgb-2-hex-form label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    pointer-events: none;
+    border-bottom: 1px solid #000;
+}
+
+#rgb-2-hex-form label::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    border-bottom: 3px solid #5FA8D3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+#rgb-2-hex-form .content-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+#rgb-2-hex-form input:focus + .label-name .content-name,
+#rgb-2-hex-form input:valid + .label-name .content-name
+{
+    transform: translateY(-100%);
+    font-size: 14px;
+    color: #5FA8D3;
+}
+
+#rgb-2-hex-form input:focus + .label-name::after,
+#rgb-2-hex-form input:valid + .label-name::after {
+    transform: translateX(0%);
+}
+
+/* add animation to input end */
+
+
+
 .align-group-flex-center {
     display: flex;
     flex-flow: row nowrap;
