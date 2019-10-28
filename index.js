@@ -12,7 +12,7 @@ var RgbToHex = null;
             $.map(this.form.find("input"), function(input) {
                 $(input).val("");
             });
-            // this.formValidator.resetForm();
+            this.formValidator.resetForm();
         },
 
         copyToClipboard: function(value) {
@@ -27,7 +27,7 @@ var RgbToHex = null;
             var self = this;
             this.convertBtn.off("click");
             this.convertBtn.on("click", function(){
-                if(true) {
+                if(self.form.valid()) {
                     var result = "#";
                     $.map(self.form.find("input"), function(input){
                         var target = $(input);
@@ -48,30 +48,33 @@ var RgbToHex = null;
             })
         },
 
-        // initForm: function() {
-        //     this.formValidator = this.form.validate({
-        //         rules: {
-        //             r: {
-        //                 min: 0,
-        //                 max: 255,
-        //                 step: 1
-        //             },
-        //             g: {
-        //                 min: 0,
-        //                 max: 255,
-        //                 step: 1
-        //             },
-        //             b: {
-        //                 min: 0,
-        //                 max: 255,
-        //                 step: 1
-        //             }
-        //         }
-        //     })
-        // },
+        initForm: function() {
+            this.formValidator = this.form.validate({
+                rules: {
+                    r: {
+                        min: 0,
+                        max: 255,
+                        step: 1
+                    },
+                    g: {
+                        min: 0,
+                        max: 255,
+                        step: 1
+                    },
+                    b: {
+                        min: 0,
+                        max: 255,
+                        step: 1
+                    }
+                },
+                errorPlacement: function(error, element) {
+                    error.appendTo( element.closest("div.error-container") );
+                }
+            })
+        },
 
         init: function(){
-            // this.initForm();
+            this.initForm();
 
             this.onClickConvertBtn();
         }

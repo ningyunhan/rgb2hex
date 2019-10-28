@@ -11,10 +11,13 @@ body {
     overflow: hidden;
 }
 
+#rgb-2-hex-form .error-container {
+    margin-top: 2em;
+}
+
 #rgb-2-hex-form .input-container{
     height: 50px;
     position: relative;
-    margin-top: 2em;
 }
 
 #rgb-2-hex-form input {
@@ -26,7 +29,7 @@ body {
     outline: none;
 }
 
-#rgb-2-hex-form label {
+#rgb-2-hex-form label:not(.error) {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -37,7 +40,7 @@ body {
     border-bottom: 1px solid #000;
 }
 
-#rgb-2-hex-form label::after {
+#rgb-2-hex-form label:not(.error)::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -69,9 +72,13 @@ body {
     transform: translateX(0%);
 }
 
+
+#rgb-2-hex-form input.error + .label-name::after,
+#rgb-2-hex-form input.error + .label-name {
+    border-bottom-color: red !important;
+}
+
 /* add animation to input end */
-
-
 
 .align-group-flex-center {
     display: flex;
